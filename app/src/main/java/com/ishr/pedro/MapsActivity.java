@@ -3,9 +3,11 @@ package com.ishr.pedro;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -31,7 +33,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //TODO: Call the functioin getDeviceLocation() so the location is known every time the app is started.
 
-        
+
     }
 
 
@@ -64,6 +66,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     REQUEST_LOCATION_PERMISSION);
         } else {
             Log.d(TAG, "getLocation: permissions granted");
+        }
+    }
+
+    //This function will handle what to do when the user sets the permission. Don't touch it.
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_LOCATION_PERMISSION:
+                // If the permission is granted, get the location,
+                // otherwise, show a Toast
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    getLocation();
+                } else {
+                    Toast.makeText(this,
+                            R.string.location_permission_denied,
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 }
