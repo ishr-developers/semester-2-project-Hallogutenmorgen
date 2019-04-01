@@ -91,9 +91,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                                 //TODO: Extract the latitude and longiture from the mLastLocation.
 
-                               latitude = mLastLocation.getLatitude();
+                                latitude = mLastLocation.getLatitude();
 
-                               longitude = mLastLocation.getLongitude();
+                                longitude = mLastLocation.getLongitude();
 
 
                             } else {
