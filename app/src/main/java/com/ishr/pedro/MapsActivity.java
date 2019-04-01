@@ -59,6 +59,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //TODO: Call the function getLastLocation() so the location is known every time the app is started.
 
+        getLastLocation();
 
         //The following lines of code manually set the location to Sydney, Australia. You will fix that later.
         LatLng sydney = new LatLng(-34, 151);
@@ -83,7 +84,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             if (location != null) {
                                 mLastLocation = location;
                                 //TODO: Declare some variables to store the latitude and longitude.
+
+                                Double latitude;
+
+                                Double longitude;
+
                                 //TODO: Extract the latitude and longiture from the mLastLocation.
+
+                               latitude = mLastLocation.getLatitude();
+
+                               longitude = mLastLocation.getLongitude();
+
 
                             } else {
 
