@@ -61,10 +61,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         getLastLocation();
 
-        //The following lines of code manually set the location to Sydney, Australia. You will fix that later.
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
     }
 
 
@@ -83,18 +80,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         public void onSuccess(Location location) {
                             if (location != null) {
                                 mLastLocation = location;
-                                //TODO: Declare some variables to store the latitude and longitude.
+
 
                                 Double latitude;
 
                                 Double longitude;
 
-                                //TODO: Extract the latitude and longiture from the mLastLocation.
 
                                 latitude = mLastLocation.getLatitude();
 
                                 longitude = mLastLocation.getLongitude();
 
+                                //The following lines of code manually set the location to Sydney, Australia. You will fix that later.
+                                //TODO: Update the following lines of code to reflect the current location.
+                                LatLng sydney = new LatLng(-34, 151); //Need to use current latitude and longitude.
+                                mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney")); //What should the marker say?
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
                             } else {
 
