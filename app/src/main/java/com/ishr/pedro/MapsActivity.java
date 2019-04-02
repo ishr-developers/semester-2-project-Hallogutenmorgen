@@ -57,10 +57,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        //TODO: Call the function getLastLocation() so the location is known every time the app is started.
-
         getLastLocation();
 
+        //TODO: Call displayRestaurants()
 
     }
 
@@ -129,6 +128,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    //This function will search for and display restaurants around the user's current location.
+    public void displayRestaurants() {
+        //We will fill in this body later.
+    }
 }
 
 
