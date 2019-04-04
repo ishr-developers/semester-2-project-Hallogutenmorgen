@@ -59,10 +59,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         getLastLocation();
 
-        //The following lines of code manually set the location to Sydney, Australia. You will fix that later.
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //TODO: Call displayRestaurants()
+
     }
 
 
@@ -82,14 +80,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             if (location != null) {
                                 mLastLocation = location;
 
+
                                 Double latitude;
 
                                 Double longitude;
 
-                               latitude = mLastLocation.getLatitude();
 
-                               longitude = mLastLocation.getLongitude();
+                                latitude = mLastLocation.getLatitude();
 
+                                longitude = mLastLocation.getLongitude();
+
+                                //The following lines of code manually set the location to Sydney, Australia. You will fix that later.
+                                //TODO: Update the following lines of code to reflect the current location.
+                                LatLng sydney = new LatLng(-34, 151); //Need to use current latitude and longitude.
+                                mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney")); //What should the marker say?
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
                             } else {
 
@@ -123,6 +128,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    //This function will search for and display restaurants around the user's current location.
+    public void displayRestaurants() {
+        //We will fill in this body later.
+    }
 }
 
 
