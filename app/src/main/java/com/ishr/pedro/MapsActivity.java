@@ -57,12 +57,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
+
         getLastLocation();
 
-        //TODO: Call displayRestaurants()
+
+        displayRestaurants();
 
     }
-
 
     private void getLastLocation() {
         if (ActivityCompat.checkSelfPermission(this,
@@ -72,32 +74,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             {Manifest.permission.ACCESS_FINE_LOCATION},
                     REQUEST_LOCATION_PERMISSION);
         } else {
-
             mFusedLocationClient.getLastLocation().addOnSuccessListener(
                     new OnSuccessListener<Location>() {
                         @Override
                         public void onSuccess(Location location) {
                             if (location != null) {
                                 mLastLocation = location;
-
-
                                 Double latitude;
-
                                 Double longitude;
-
-
                                 latitude = mLastLocation.getLatitude();
-
                                 longitude = mLastLocation.getLongitude();
-
                                 //The following lines of code manually set the location to Sydney, Australia. You will fix that later.
-                                //TODO: Update the following lines of code to reflect the current location.
-                                LatLng sydney = new LatLng(-34, 151); //Need to use current latitude and longitude.
-                                mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney")); //What should the marker say?
-                                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-
+                                LatLng currentLocation = new LatLng(latitude, longitude); //Need to use current latitude and longitude.
+                                mMap.addMarker(new MarkerOptions().position(currentLocation).title("Current Location")); //What should the marker say?
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
                             } else {
-
                                 //Display a message if there is no location.
                                 Toast.makeText(getApplicationContext(), "No Location", Toast.LENGTH_LONG).show();
                             }
@@ -106,8 +97,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             );
         }
     }
-
-
     //This function will handle what to do when the user sets the permission. Don't touch it.
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -133,7 +122,3 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //We will fill in this body later.
     }
 }
-
-
-
-
