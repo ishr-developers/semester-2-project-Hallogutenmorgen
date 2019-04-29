@@ -9,11 +9,11 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/editText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:gravity="left"
         android:hint="Searcher"
         android:textSize="15dp"
@@ -22,6 +22,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <com.mapquest.mapping.maps.MapView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mapquestMapView"
+        android:layout_width="216dp"
+        android:layout_height="252dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:mapquest_app_key="YOUR_MAPQUEST_KEY_HERE" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
